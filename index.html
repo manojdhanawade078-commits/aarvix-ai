@@ -57,5 +57,47 @@ footer{text-align:center;padding:25px;color:#888;border-top:1px solid #25283a}
 <p style="text-align:center;color:#aaa">Your creative universe starts here. Create. Imagine. Animate.</p>
 </section>
 <footer>© 2026 AARVIX AI. All rights reserved.</footer>
+  
+<section class="section" id="video-generator">
+  <h2>AARVIX AI Video Studio</h2>
+  <div class="card">
+    <h3>🎬 Text to Video</h3>
+    <p>Describe your imagination and create a cinematic video.</p>
+
+    <textarea id="videoPrompt"
+      placeholder="Describe your video scene..."
+      style="width:100%;min-height:120px;padding:15px;border-radius:10px;background:#202337;color:white;border:1px solid #555;font-size:16px;"></textarea>
+
+    <p>Video Style</p>
+    <select id="videoStyle" style="padding:12px;width:100%;background:#202337;color:white;border-radius:8px;">
+      <option>Cinematic</option>
+      <option>Realistic</option>
+      <option>Anime</option>
+      <option>3D Animation</option>
+    </select>
+
+    <button class="btn" onclick="generateVideo()">
+      Generate Video
+    </button>
+
+    <p id="videoStatus"></p>
+  </div>
+</section>
+
+<script>
+function generateVideo() {
+  const prompt = document.getElementById("videoPrompt").value.trim();
+  const style = document.getElementById("videoStyle").value;
+
+  if (!prompt) {
+    alert("Please enter a video prompt!");
+    return;
+  }
+
+  document.getElementById("videoStatus").innerText =
+    "Your prompt is ready! AI video API connection is the next step.";
+}
+</script>
+  
 </body>
 </html>
