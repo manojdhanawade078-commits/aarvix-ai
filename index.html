@@ -9,11 +9,7 @@
   <meta name="description" content="Create stunning AI images and videos with AARVIX AI." />
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
       --bg: #080b14;
@@ -37,9 +33,7 @@
       min-height: 100vh;
     }
 
-    button, input, textarea, select {
-      font: inherit;
-    }
+    button, input, textarea, select { font: inherit; }
 
     header {
       height: 76px;
@@ -72,26 +66,11 @@
       margin-top: 2px;
     }
 
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-    }
+    nav { display: flex; align-items: center; gap: 24px; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 14px; }
+    nav a:hover { color: white; }
 
-    nav a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 14px;
-    }
-
-    nav a:hover {
-      color: white;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 75px 20px 45px;
-    }
+    .hero { text-align: center; padding: 75px 20px 45px; }
 
     .hero-tag {
       display: inline-block;
@@ -131,20 +110,9 @@
       padding-bottom: 70px;
     }
 
-    .section-heading {
-      text-align: center;
-      margin: 25px 0 28px;
-    }
-
-    .section-heading h2 {
-      font-size: 27px;
-      margin-bottom: 9px;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-      font-size: 14px;
-    }
+    .section-heading { text-align: center; margin: 25px 0 28px; }
+    .section-heading h2 { font-size: 27px; margin-bottom: 9px; }
+    .section-heading p { color: var(--muted); font-size: 14px; }
 
     .tools-grid {
       display: grid;
@@ -160,10 +128,7 @@
       transition: .25s;
     }
 
-    .tool-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(139,92,246,.5);
-    }
+    .tool-card:hover { transform: translateY(-4px); border-color: rgba(139,92,246,.5); }
 
     .tool-icon {
       width: 53px;
@@ -176,10 +141,7 @@
       margin-bottom: 17px;
     }
 
-    .tool-card h3 {
-      font-size: 21px;
-      margin-bottom: 9px;
-    }
+    .tool-card h3 { font-size: 21px; margin-bottom: 9px; }
 
     .tool-card > p {
       font-size: 13px;
@@ -188,9 +150,7 @@
       margin-bottom: 22px;
     }
 
-    .field {
-      margin-bottom: 16px;
-    }
+    .field { margin-bottom: 16px; }
 
     label {
       display: block;
@@ -209,19 +169,10 @@
       outline: none;
     }
 
-    textarea {
-      min-height: 105px;
-      resize: vertical;
-      line-height: 1.5;
-    }
+    textarea { min-height: 105px; resize: vertical; line-height: 1.5; }
 
-    textarea:focus, input:focus, select:focus {
-      border-color: var(--purple);
-    }
-
-    select option {
-      background: #111827;
-    }
+    textarea:focus, input:focus, select:focus { border-color: var(--purple); }
+    select option { background: #111827; }
 
     .two-columns {
       display: grid;
@@ -241,16 +192,8 @@
       transition: .2s;
     }
 
-    .primary-btn:hover {
-      filter: brightness(1.15);
-      transform: translateY(-1px);
-    }
-
-    .primary-btn:disabled {
-      opacity: .55;
-      cursor: not-allowed;
-      transform: none;
-    }
+    .primary-btn:hover { filter: brightness(1.15); transform: translateY(-1px); }
+    .primary-btn:disabled { opacity: .55; cursor: not-allowed; transform: none; }
 
     .status {
       color: #a5b4fc;
@@ -317,11 +260,7 @@
       text-align: center;
     }
 
-    .feature strong {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 14px;
-    }
+    .feature strong { display: block; margin-bottom: 8px; font-size: 14px; }
 
     .feature span {
       color: var(--muted);
@@ -338,64 +277,32 @@
       line-height: 1.8;
     }
 
-    footer strong {
-      color: #c4b5fd;
-    }
+    footer strong { color: #c4b5fd; }
 
     @media(max-width: 760px) {
-      header {
-        padding: 0 5%;
-      }
-
-      nav {
-        gap: 12px;
-      }
-
-      nav a {
-        font-size: 12px;
-      }
-
-      .hero {
-        padding-top: 55px;
-      }
-
-      .tools-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .features {
-        grid-template-columns: 1fr;
-      }
+      header { padding: 0 5%; }
+      nav { gap: 12px; }
+      nav a { font-size: 12px; }
+      .hero { padding-top: 55px; }
+      .tools-grid { grid-template-columns: 1fr; }
+      .features { grid-template-columns: 1fr; }
     }
 
     @media(max-width: 380px) {
-      .logo {
-        font-size: 20px;
-      }
-
-      nav {
-        gap: 8px;
-      }
-
-      nav a {
-        font-size: 11px;
-      }
-
-      .tool-card {
-        padding: 18px;
-      }
+      .logo { font-size: 20px; }
+      nav { gap: 8px; }
+      nav a { font-size: 11px; }
+      .tool-card { padding: 18px; }
     }
   </style>
 </head>
 
 <body>
-
   <header>
     <div class="logo">
       AARVIX AI
       <span>CREATIVE STUDIO</span>
     </div>
-
     <nav>
       <a href="#home">Home</a>
       <a href="#tools">AI Tools</a>
@@ -405,12 +312,10 @@
 
   <section class="hero" id="home">
     <div class="hero-tag">✦ YOUR AI CREATIVE STUDIO</div>
-
     <h1>
       Create Beyond<br />
       <span class="gradient-text">Imagination</span>
     </h1>
-
     <p>
       Turn your ideas into stunning AI images and videos.
       Create, explore and bring your imagination to life with AARVIX AI.
@@ -418,50 +323,32 @@
   </section>
 
   <main class="container" id="tools">
-
     <div class="section-heading">
       <h2>Explore AI Tools</h2>
       <p>Choose your creative tool and start creating.</p>
     </div>
 
     <div class="tools-grid">
-
       <!-- AI IMAGE GENERATOR -->
       <section class="tool-card">
         <div class="tool-icon">🎨</div>
-
         <h3>AI Image Generator</h3>
-        <p>
-          Convert your text prompt into beautiful AI-generated images.
-        </p>
+        <p>Convert your text prompt into beautiful AI-generated images.</p>
 
         <div class="field">
           <label for="imagePrompt">Describe your image</label>
-          <textarea
-            id="imagePrompt"
-            maxlength="2048"
-            placeholder="Example: A cinematic futuristic city at sunset, ultra realistic, 4K..."
-          ></textarea>
+          <textarea id="imagePrompt" maxlength="2048"
+            placeholder="Example: A cinematic futuristic city at sunset, ultra realistic, 4K..."></textarea>
         </div>
 
-        <button class="primary-btn" id="imageGenerateButton">
-          ✨ Generate Image
-        </button>
-
+        <button class="primary-btn" id="imageGenerateButton">✨ Generate Image</button>
         <div class="status" id="imageStatus" aria-live="polite"></div>
 
         <div class="result-box" id="imageResult">
-          <div class="result-placeholder">
-            Your generated image will appear here.
-          </div>
+          <div class="result-placeholder">Your generated image will appear here.</div>
         </div>
 
-        <a
-          class="download-link"
-          id="imageDownloadLink"
-          href="#"
-          download="aarvix-ai-image.jpg"
-        >
+        <a class="download-link" id="imageDownloadLink" href="#" download="aarvix-ai-image.jpg">
           ↓ Download Image
         </a>
       </section>
@@ -469,21 +356,288 @@
       <!-- AI TEXT TO VIDEO -->
       <section class="tool-card">
         <div class="tool-icon">🎬</div>
-
         <h3>AI Text to Video</h3>
-        <p>
-          Transform your imagination into AI-generated videos using text prompts.
-        </p>
+        <p>Transform your imagination into AI-generated videos using text prompts.</p>
 
         <div class="field">
           <label for="videoPrompt">Describe your video</label>
-          <textarea
-            id="videoPrompt"
-            placeholder="Example: A beautiful cinematic drone shot flying over green mountains..."
-          ></textarea>
+          <textarea id="videoPrompt"
+            placeholder="Example: A beautiful cinematic drone shot flying over green mountains..."></textarea>
         </div>
 
         <div class="field">
+          <label for="videoStyle">Video Style</label>
+          <select id="videoStyle">
+            <option value="Cinematic">Cinematic</option>
+            <option value="Realistic">Realistic</option>
+            <option value="Anime">Anime</option>
+            <option value="3D Animation">3D Animation</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Documentary">Documentary</option>
+          </select>
+        </div>
+
+        <div class="two-columns">
+          <div class="field">
+            <label for="videoDuration">Duration</label>
+            <select id="videoDuration">
+              <option value="2">2 Seconds</option>
+              <option value="3">3 Seconds</option>
+              <option value="4">4 Seconds</option>
+              <option value="5" selected>5 Seconds</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="videoRatio">Aspect Ratio</label>
+            <select id="videoRatio">
+              <option value="16:9">16:9 Landscape</option>
+              <option value="9:16">9:16 Portrait</option>
+              <option value="1:1">1:1 Square</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="primary-btn" id="generateButton">🎥 Generate Video</button>
+        <div class="status" id="videoStatus" aria-live="polite"></div>
+
+        <div class="result-box" id="videoResult">
+          <div class="result-placeholder">Your generated video will appear here.</div>
+          <video id="resultVideo" controls playsinline style="display:none"></video>
+        </div>
+
+        <a class="download-link" id="downloadLink" href="#" download="aarvix-ai-video.mp4">
+          ↓ Download Video
+        </a>
+      </section>
+    </div>
+
+    <section class="features" id="about">
+      <div class="feature">
+        <strong>🎨 AI Image Creation</strong>
+        <span>Generate creative images from your imagination.</span>
+      </div>
+      <div class="feature">
+        <strong>🎬 AI Video Creation</strong>
+        <span>Turn text prompts into exciting video clips.</span>
+      </div>
+      <div class="feature">
+        <strong>⚡ Simple Experience</strong>
+        <span>Easy-to-use creative tools on mobile and desktop.</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <strong>AARVIX AI</strong> — Creative Studio<br />
+    Create Beyond Imagination<br />
+    © <span id="year"></span> AARVIX AI. All rights reserved.
+  </footer>
+
+  <script type="module">
+    import { Client } from
+      "https://cdn.jsdelivr.net/npm/@gradio/client/dist/index.min.js";
+
+    // ------------------------------------------------
+    // IMAGE GENERATOR CONFIGURATION
+    // Cloudflare Worker URL
+    // ------------------------------------------------
+
+    const IMAGE_API_BASE = "https://aarvix-ai-backend.manojdhanawade078.workers.dev";
+
+    const imagePrompt = document.getElementById("imagePrompt");
+    const imageButton = document.getElementById("imageGenerateButton");
+    const imageStatus = document.getElementById("imageStatus");
+    const imageResult = document.getElementById("imageResult");
+    const imageDownloadLink = document.getElementById("imageDownloadLink");
+
+    imageButton.addEventListener("click", async () => {
+      const prompt = imagePrompt.value.trim();
+
+      if (!prompt) {
+        imageStatus.textContent = "Please enter an image prompt.";
+        imagePrompt.focus();
+        return;
+      }
+
+      imageButton.disabled = true;
+      imageButton.textContent = "⏳ Generating Image...";
+      imageStatus.textContent = "Creating your image. Please wait...";
+      imageDownloadLink.style.display = "none";
+      imageResult.innerHTML =
+        '<div class="result-placeholder">Generating your image...</div>';
+
+      try {
+        const response = await fetch(
+          IMAGE_API_BASE.replace(/\/$/, "") + "/generate-image",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ prompt })
+          }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok || !data.success || !data.image) {
+          throw new Error(data.error || "Image generation failed.");
+        }
+
+        const img = document.createElement("img");
+        img.src = data.image;
+        img.alt = "AI generated image";
+
+        imageResult.innerHTML = "";
+        imageResult.appendChild(img);
+
+        imageDownloadLink.href = data.image;
+        imageDownloadLink.style.display = "inline-block";
+        imageStatus.textContent = "✅ Image generated successfully!";
+
+      } catch (error) {
+        console.error(error);
+        imageResult.innerHTML =
+          '<div class="result-placeholder">Image could not be generated.</div>';
+        imageStatus.textContent =
+          "Error: " + (error.message || "Please try again.");
+      } finally {
+        imageButton.disabled = false;
+        imageButton.textContent = "✨ Generate Image";
+      }
+    });
+
+    // ------------------------------------------------
+    // TEXT TO VIDEO CONFIGURATION — LTX-2.5
+    // ------------------------------------------------
+
+    const videoPrompt = document.getElementById("videoPrompt");
+    const videoStyle = document.getElementById("videoStyle");
+    const videoDuration = document.getElementById("videoDuration");
+    const videoRatio = document.getElementById("videoRatio");
+    const generateButton = document.getElementById("generateButton");
+    const videoStatus = document.getElementById("videoStatus");
+    const resultVideo = document.getElementById("resultVideo");
+    const downloadLink = document.getElementById("downloadLink");
+
+    generateButton.addEventListener("click", async () => {
+      const prompt = videoPrompt.value.trim();
+
+      if (!prompt) {
+        videoStatus.textContent = "Please enter a video prompt.";
+        videoPrompt.focus();
+        return;
+      }
+
+      generateButton.disabled = true;
+      generateButton.textContent = "⏳ Generating Video...";
+      videoStatus.textContent =
+        "Connecting to AI video generator. Please wait...";
+      downloadLink.style.display = "none";
+      resultVideo.style.display = "none";
+      resultVideo.removeAttribute("src");
+
+      try {
+        const client = await Client.connect("Lightricks/LTX-2.5");
+
+        videoStatus.textContent =
+          "Generating your video. This may take a few minutes...";
+
+        const ratio = videoRatio.value;
+        let width = 1280;
+        let height = 720;
+
+        if (ratio === "9:16") {
+          width = 720;
+          height = 1280;
+        } else if (ratio === "1:1") {
+          width = 1024;
+          height = 1024;
+        }
+
+        const finalPrompt =
+          prompt + ", " + videoStyle.value + " style, high quality";
+
+        const result = await client.predict("/run", [
+          finalPrompt,
+          null,
+          height,
+          width,
+          Number(videoDuration.value),
+          0,
+          "conv",
+          false,
+          true,
+          false
+        ]);
+
+        const output = result.data;
+
+        function findVideoUrl(value) {
+          if (!value) return null;
+
+          if (typeof value === "string") {
+            if (value.startsWith("http")) return value;
+            return null;
+          }
+
+          if (Array.isArray(value)) {
+            for (const item of value) {
+              const found = findVideoUrl(item);
+              if (found) return found;
+            }
+          }
+
+          if (typeof value === "object") {
+            if (value.url && typeof value.url === "string") {
+              return value.url;
+            }
+
+            if (value.video && typeof value.video === "string") {
+              return value.video;
+            }
+
+            for (const item of Object.values(value)) {
+              const found = findVideoUrl(item);
+              if (found) return found;
+            }
+          }
+
+          return null;
+        }
+
+        const videoUrl = findVideoUrl(output);
+
+        if (!videoUrl) {
+          throw new Error(
+            "Video output was not found. The AI Space may have changed its response format."
+          );
+        }
+
+        resultVideo.src = videoUrl;
+        resultVideo.style.display = "block";
+        resultVideo.load();
+
+        downloadLink.href = videoUrl;
+        downloadLink.style.display = "inline-block";
+        videoStatus.textContent = "✅ Video generated successfully!";
+
+      } catch (error) {
+        console.error(error);
+        videoStatus.textContent =
+          "Video generation failed: " +
+          (error.message || "Please try again later.");
+      } finally {
+        generateButton.disabled = false;
+        generateButton.textContent = "🎥 Generate Video";
+      }
+    });
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
+ class="field">
           <label for="videoStyle">Video Style</label>
           <select id="videoStyle">
             <option value="Cinematic">Cinematic</option>
