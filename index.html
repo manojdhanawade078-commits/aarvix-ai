@@ -4,199 +4,237 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080b14">
+<meta name="theme-color" content="#090b14">
 <title>AARVIX AI — Creative Studio</title>
-<meta name="description" content="Create stunning AI images and videos with AARVIX AI.">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#080b14;--panel:#111827;--border:#263249;--text:#f5f7ff;--muted:#9ba8bd;--purple:#8b5cf6;--blue:#2563eb}
-body{background:radial-gradient(circle at 15% 5%,#34205a55,transparent 32%),var(--bg);color:var(--text);font-family:Arial,sans-serif;min-height:100vh}
-header{height:75px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);background:#080b14ed;position:sticky;top:0;z-index:5}
-.logo{font-size:25px;font-weight:900;letter-spacing:2px;background:linear-gradient(90deg,#a78bfa,#60a5fa);background-clip:text;color:transparent}
-.logo small{display:block;font-size:10px;letter-spacing:4px;color:#aab5c8}
-nav{display:flex;gap:20px}
-nav a{color:var(--muted);text-decoration:none;font-size:13px}
-.hero{text-align:center;padding:75px 20px 45px}
-.tag{display:inline-block;padding:8px 15px;border:1px solid #8b5cf666;background:#8b5cf622;color:#c4b5fd;border-radius:30px;font-size:12px;margin-bottom:22px}
-.hero h1{font-size:clamp(36px,7vw,64px);line-height:1.12;margin-bottom:18px}
-.gradient{background:linear-gradient(90deg,#a78bfa,#60a5fa,#22d3ee);background-clip:text;color:transparent}
-.hero p{max-width:650px;margin:auto;color:var(--muted);line-height:1.7}
-.container{width:min(1050px,92%);margin:auto;padding-bottom:70px}
-.heading{text-align:center;margin:25px 0}
-.heading h2{font-size:27px;margin-bottom:9px}
-.heading p{color:var(--muted);font-size:14px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
-.card{background:linear-gradient(145deg,#151e30,#0d1320);border:1px solid var(--border);border-radius:19px;padding:25px;min-width:0}
-.icon{width:53px;height:53px;display:grid;place-items:center;border-radius:15px;font-size:26px;background:#8b5cf629;margin-bottom:17px}
-.card h3{font-size:21px;margin-bottom:9px}
-.card>p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:22px}
-.field{margin-bottom:16px}
-label{display:block;font-size:13px;color:#d5dced;margin-bottom:8px}
-textarea,select{width:100%;background:#090f1d;border:1px solid #ffffff22;color:white;border-radius:10px;padding:13px;outline:none}
-textarea{min-height:105px;resize:vertical;line-height:1.5}
-textarea:focus,select:focus{border-color:var(--purple)}
-select option{background:#111827}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.btn{width:100%;padding:14px;border:0;border-radius:11px;color:white;font-weight:bold;cursor:pointer;background:linear-gradient(100deg,#7c3aed,#2563eb)}
-.btn:disabled{opacity:.55;cursor:not-allowed}
-.status{color:#a5b4fc;font-size:13px;margin-top:13px;min-height:18px;line-height:1.5;overflow-wrap:anywhere}
-.result{margin-top:18px;border:1px dashed #ffffff33;background:#0003;border-radius:13px;padding:12px;min-height:100px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;overflow:hidden}
-.result img,.result video{width:100%;max-height:420px;object-fit:contain;border-radius:9px;background:#05070c}
-.placeholder{color:#728099;font-size:13px;text-align:center;padding:22px 8px}
-.download{display:none;text-decoration:none;background:#22c55e20;border:1px solid #22c55e66;color:#86efac;border-radius:9px;padding:10px 15px;font-size:13px;font-weight:bold;margin-top:12px}
-.features{margin-top:45px;display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-.feature{padding:20px;border:1px solid var(--border);background:#111827aa;border-radius:13px;text-align:center}
-.feature strong{display:block;margin-bottom:8px;font-size:14px}
-.feature span{color:var(--muted);font-size:12px;line-height:1.5}
-footer{border-top:1px solid var(--border);padding:28px 15px;text-align:center;color:var(--muted);font-size:12px;line-height:1.8}
-footer strong{color:#c4b5fd}
-@media(max-width:760px){header{padding:0 5%}.grid{grid-template-columns:1fr}.features{grid-template-columns:1fr}.hero{padding-top:55px}}
-@media(max-width:380px){.logo{font-size:20px}nav{gap:10px}nav a{font-size:11px}.card{padding:18px}}
+*{box-sizing:border-box}
+body{
+  margin:0;background:#090b14;color:#fff;
+  font-family:Arial,sans-serif
+}
+header{
+  padding:20px 7%;display:flex;
+  justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:15px;border-bottom:1px solid #292d40
+}
+.logo{font-size:26px;font-weight:bold;color:#a99aff}
+.logo span{color:white}
+nav a{color:#ddd;text-decoration:none;margin-left:15px}
+.hero{text-align:center;padding:65px 20px 45px}
+.tag{color:#a99aff;letter-spacing:3px}
+h1{font-size:clamp(36px,7vw,65px);margin:20px 0}
+h1 span{color:#a99aff}
+.hero p{color:#aaa;line-height:1.7}
+.section{padding:35px 7% 65px}
+.section h2{text-align:center;font-size:30px}
+.cards{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:22px;margin-top:30px
+}
+.card{
+  background:#151827;border:1px solid #30344b;
+  border-radius:18px;padding:25px
+}
+.card h3{font-size:22px}
+.card p{color:#aaa;line-height:1.6}
+.emoji{font-size:38px}
+.field{
+  width:100%;padding:14px;margin-top:9px;
+  border-radius:10px;background:#202337;
+  color:white;border:1px solid #555;font-size:16px
+}
+label{display:block;margin-top:20px;color:#ddd}
+.btn{
+  display:inline-block;padding:14px 22px;
+  border:0;border-radius:10px;background:#8170ff;
+  color:white;font-size:16px;font-weight:bold;
+  cursor:pointer;text-decoration:none
+}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.secondary{background:#25283b}
+.status{color:#c2b8ff;line-height:1.6;overflow-wrap:anywhere}
+.result{
+  display:none;width:100%;max-width:850px;
+  margin:22px auto;border-radius:14px;background:#000
+}
+.note{font-size:13px;color:#999;line-height:1.6}
+footer{
+  text-align:center;padding:25px;
+  border-top:1px solid #292d40;color:#999
+}
+footer a{color:#b4a7ff;margin:7px}
 </style>
 </head>
 
 <body>
+
 <header>
-  <div class="logo">AARVIX AI<small>CREATIVE STUDIO</small></div>
+  <div class="logo">AARVIX <span>AI</span></div>
   <nav>
-    <a href="#home">Home</a>
-    <a href="#tools">AI Tools</a>
-    <a href="#about">About</a>
+    <a href="#tools">Tools</a>
+    <a href="#image">Image</a>
+    <a href="#video">Video</a>
   </nav>
 </header>
 
-<section class="hero" id="home">
-  <div class="tag">✦ YOUR AI CREATIVE STUDIO</div>
-  <h1>Create Beyond<br><span class="gradient">Imagination</span></h1>
-  <p>Turn your ideas into stunning AI images and videos. Create, explore and bring your imagination to life with AARVIX AI.</p>
+<section class="hero">
+  <div class="tag">CREATE BEYOND IMAGINATION</div>
+  <h1>Turn Your Ideas Into <span>Reality.</span></h1>
+  <p>Create AI images and cinematic videos with AARVIX AI.</p>
+  <a class="btn" href="#tools">Start Creating →</a>
 </section>
 
-<main class="container" id="tools">
-  <div class="heading">
-    <h2>Explore AI Tools</h2>
-    <p>Choose your creative tool and start creating.</p>
-  </div>
-
-  <div class="grid">
-
-    <!-- AI IMAGE GENERATOR -->
-    <section class="card">
-      <div class="icon">🎨</div>
+<section class="section" id="tools">
+  <h2>Explore AI Creation Tools</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="emoji">🎨</div>
       <h3>AI Image Generator</h3>
-      <p>Convert your text prompt into beautiful AI-generated images.</p>
-
-      <div class="field">
-        <label for="imagePrompt">Describe your image</label>
-        <textarea id="imagePrompt" maxlength="2048" placeholder="Example: A cinematic futuristic city at sunset, ultra realistic, 4K..."></textarea>
-      </div>
-
-      <button class="btn" id="imageButton">✨ Generate Image</button>
-      <div class="status" id="imageStatus" aria-live="polite"></div>
-      <div class="result" id="imageResult">
-        <div class="placeholder">Your generated image will appear here.</div>
-      </div>
-      <a class="download" id="imageDownload" href="#" download="aarvix-ai-image.jpg">↓ Download Image</a>
-    </section>
-
-    <!-- AI TEXT TO VIDEO -->
-    <section class="card">
-      <div class="icon">🎬</div>
-      <h3>AI Text to Video</h3>
-      <p>Transform your imagination into AI-generated videos using text prompts.</p>
-
-      <div class="field">
-        <label for="videoPrompt">Describe your video</label>
-        <textarea id="videoPrompt" placeholder="Example: A cinematic drone shot flying over green mountains..."></textarea>
-      </div>
-
-      <div class="field">
-        <label for="videoStyle">Video Style</label>
-        <select id="videoStyle">
-          <option>Cinematic</option>
-          <option>Realistic</option>
-          <option>Anime</option>
-          <option>3D Animation</option>
-          <option>Fantasy</option>
-          <option>Documentary</option>
-        </select>
-      </div>
-
-      <div class="two">
-        <div class="field">
-          <label for="videoDuration">Duration</label>
-          <select id="videoDuration">
-            <option value="2">2 Seconds</option>
-            <option value="3">3 Seconds</option>
-            <option value="4">4 Seconds</option>
-            <option value="5" selected>5 Seconds</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="videoRatio">Aspect Ratio</label>
-          <select id="videoRatio">
-            <option value="16:9">16:9 Landscape</option>
-            <option value="9:16">9:16 Portrait</option>
-            <option value="1:1">1:1 Square</option>
-          </select>
-        </div>
-      </div>
-
-      <button class="btn" id="videoButton">🎥 Generate Video</button>
-      <div class="status" id="videoStatus" aria-live="polite"></div>
-      <div class="result" id="videoResult">
-        <div class="placeholder" id="videoPlaceholder">Your generated video will appear here.</div>
-        <video id="resultVideo" controls playsinline style="display:none"></video>
-      </div>
-      <a class="download" id="videoDownload" href="#" download="aarvix-ai-video.mp4">↓ Download Video</a>
-    </section>
-
+      <p>Create beautiful AI images from your text prompts.</p>
+      <a href="#image" style="color:#b4a7ff">Create Image →</a>
+    </div>
+    <div class="card">
+      <div class="emoji">🎬</div>
+      <h3>AI Text-to-Video</h3>
+      <p>Turn your imagination into cinematic AI videos.</p>
+      <a href="#video" style="color:#b4a7ff">Create Video →</a>
+    </div>
   </div>
+</section>
 
-  <section class="features" id="about">
-    <div class="feature"><strong>🎨 AI Image Creation</strong><span>Generate creative images from your imagination.</span></div>
-    <div class="feature"><strong>🎬 AI Video Creation</strong><span>Turn text prompts into exciting video clips.</span></div>
-    <div class="feature"><strong>⚡ Simple Experience</strong><span>Easy-to-use creative tools on mobile and desktop.</span></div>
-  </section>
-</main>
+<section class="section" id="image">
+  <h2>🎨 AI Image Generator</h2>
+  <div class="card">
+    <p>Describe the image you want to create.</p>
+    <label for="imagePrompt">Image Prompt</label>
+    <textarea id="imagePrompt" class="field"
+      rows="4" placeholder="A beautiful Indian village at sunset, cinematic photography..."></textarea>
+
+    <button class="btn" id="imageButton" style="width:100%;margin-top:20px">
+      Generate Image 🚀
+    </button>
+
+    <p class="status" id="imageStatus">Ready to create your image.</p>
+    <img id="resultImage" class="result" alt="Generated AI image">
+    <a id="imageDownload" class="btn" style="display:none" download="aarvix-ai-image.jpg">
+      Download Image ⬇️
+    </a>
+    <p class="note">Powered by Cloudflare Workers AI.</p>
+  </div>
+</section>
+
+<section class="section" id="video">
+  <h2>🎬 AARVIX AI Video Studio</h2>
+  <div class="card">
+    <p>Describe your imagination and create an AI video.</p>
+
+    <label for="videoPrompt">Video Prompt</label>
+    <textarea id="videoPrompt" class="field" rows="4"
+      placeholder="A cinematic aerial view of Mumbai at sunset..."></textarea>
+
+    <label for="videoStyle">Video Style</label>
+    <select id="videoStyle" class="field">
+      <option value="cinematic">Cinematic</option>
+      <option value="realistic">Realistic</option>
+      <option value="anime">Anime</option>
+      <option value="3D animation">3D Animation</option>
+    </select>
+
+    <label for="videoDuration">Video Duration</label>
+    <select id="videoDuration" class="field">
+      <option value="2">2 Seconds</option>
+      <option value="3">3 Seconds</option>
+      <option value="4">4 Seconds</option>
+      <option value="5">5 Seconds</option>
+    </select>
+
+    <label for="videoRatio">Video Format</label>
+    <select id="videoRatio" class="field">
+      <option value="landscape">Landscape (16:9)</option>
+      <option value="portrait">Portrait (9:16)</option>
+    </select>
+
+    <button class="btn" id="videoButton" style="width:100%;margin-top:22px">
+      Generate Video 🚀
+    </button>
+
+    <p class="status" id="videoStatus">Ready to create your video.</p>
+
+    <video id="resultVideo" class="result"
+      controls playsinline preload="metadata"></video>
+
+    <a id="videoDownload" class="btn"
+      style="display:none" download="aarvix-ai-video.mp4">
+      Download Video ⬇️
+    </a>
+
+    <p class="note">
+      Powered by LTX-2.5 through Hugging Face Gradio API.
+      Generation depends on public GPU availability and queue.
+    </p>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <h2>Welcome to AARVIX AI</h2>
+  <p style="text-align:center;color:#aaa">
+    Your creative universe starts here. Create. Imagine. Innovate.
+  </p>
+</section>
 
 <footer>
-  <strong>AARVIX AI</strong> — Creative Studio<br>
-  Create Beyond Imagination<br>
-  © <span id="year"></span> AARVIX AI. All rights reserved.
+  <h3>AARVIX AI</h3>
+  <p>AI Creative Studio</p>
+  <a href="about.html">About Us</a>
+  <a href="privacy.html">Privacy Policy</a>
+  <a href="terms.html">Terms & Conditions</a>
+  <a href="contact.html">Contact Us</a>
+  <a href="guide.html">User Guide</a>
+  <p>© 2026 AARVIX AI. All Rights Reserved.</p>
 </footer>
 
-<script type="module">
-import { Client } from "https://cdn.jsdelivr.net/npm/@gradio/client/dist/index.min.js";
+<script>
+const IMAGE_API_BASE =
+  "https://aarvix-ai-backend.manojdhanawade078.workers.dev";
 
-// CLOUDFLARE IMAGE BACKEND
-const IMAGE_API_BASE = "https://aarvix-ai-backend.manojdhanawade078.workers.dev";
+const LTX_BASE =
+  "https://lightricks-ltx-2-5.hf.space";
 
 const $ = id => document.getElementById(id);
 
-// IMAGE GENERATOR
+/* =========================
+   AI IMAGE GENERATOR
+========================= */
+
 $("imageButton").addEventListener("click", async () => {
   const prompt = $("imagePrompt").value.trim();
+  const button = $("imageButton");
+  const status = $("imageStatus");
+  const image = $("resultImage");
+  const download = $("imageDownload");
 
   if (!prompt) {
-    $("imageStatus").textContent = "Please enter an image prompt.";
-    $("imagePrompt").focus();
+    status.textContent = "Please enter an image prompt.";
     return;
   }
 
-  const button = $("imageButton");
   button.disabled = true;
-  button.textContent = "⏳ Generating Image...";
-  $("imageStatus").textContent = "Creating your image. Please wait...";
-  $("imageDownload").style.display = "none";
-  $("imageResult").innerHTML = '<div class="placeholder">Generating your image...</div>';
+  button.textContent = "Generating...";
+  image.style.display = "none";
+  download.style.display = "none";
 
   try {
-    const response = await fetch(IMAGE_API_BASE + "/generate-image", {
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({prompt})
-    });
+    status.textContent = "Connecting to AARVIX AI...";
+
+    const response = await fetch(
+      IMAGE_API_BASE + "/generate-image",
+      {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({prompt})
+      }
+    );
 
     const data = await response.json();
 
@@ -204,158 +242,286 @@ $("imageButton").addEventListener("click", async () => {
       throw new Error(data.error || "Image generation failed.");
     }
 
-    const img = document.createElement("img");
-    img.src = data.image;
-    img.alt = "AI generated image";
-    $("imageResult").innerHTML = "";
-    $("imageResult").appendChild(img);
+    image.src = data.image;
+    image.style.display = "block";
 
-    $("imageDownload").href = data.image;
-    $("imageDownload").style.display = "inline-block";
-    $("imageStatus").textContent = "✅ Image generated successfully!";
+    download.href = data.image;
+    download.style.display = "inline-block";
+
+    status.textContent = "🎉 Your AI image is ready!";
 
   } catch (error) {
-    console.error("Image Error:", error);
-    $("imageResult").innerHTML = '<div class="placeholder">Image could not be generated.</div>';
-    $("imageStatus").textContent = "Error: " + (error.message || "Please try again.");
+    console.error(error);
+    status.textContent = "Image generation failed: " + error.message;
   } finally {
     button.disabled = false;
-    button.textContent = "✨ Generate Image";
+    button.textContent = "Generate Image 🚀";
   }
 });
 
 
-// TEXT TO VIDEO — LTX-2.5 UPDATED API
+/* =========================
+   LTX VIDEO API HELPERS
+========================= */
+
+function extractVideoUrl(value) {
+  if (!value) return null;
+
+  if (typeof value === "string") {
+    if (/^https?:\/\//i.test(value)) return value;
+    return null;
+  }
+
+  if (Array.isArray(value)) {
+    for (const item of value) {
+      const found = extractVideoUrl(item);
+      if (found) return found;
+    }
+  }
+
+  if (typeof value === "object") {
+    if (value.url && typeof value.url === "string") {
+      return value.url;
+    }
+
+    for (const key of ["video", "output", "path", "data"]) {
+      if (value[key]) {
+        const found = extractVideoUrl(value[key]);
+        if (found) return found;
+      }
+    }
+
+    for (const item of Object.values(value)) {
+      const found = extractVideoUrl(item);
+      if (found) return found;
+    }
+  }
+
+  return null;
+}
+
+
+/* =========================
+   TEXT TO VIDEO
+========================= */
+
 $("videoButton").addEventListener("click", async () => {
   const prompt = $("videoPrompt").value.trim();
+  const button = $("videoButton");
+  const status = $("videoStatus");
+  const video = $("resultVideo");
+  const download = $("videoDownload");
 
   if (!prompt) {
-    $("videoStatus").textContent = "Please enter a video prompt.";
-    $("videoPrompt").focus();
+    status.textContent = "Please enter your video prompt.";
     return;
   }
 
-  const button = $("videoButton");
   button.disabled = true;
-  button.textContent = "⏳ Generating Video...";
-  $("videoStatus").textContent = "Connecting to LTX-2.5...";
-  $("videoDownload").style.display = "none";
-  $("resultVideo").style.display = "none";
-  $("resultVideo").removeAttribute("src");
-  $("videoPlaceholder").style.display = "block";
+  button.textContent = "Connecting...";
+
+  video.pause();
+  video.removeAttribute("src");
+  video.load();
+  video.style.display = "none";
+  download.style.display = "none";
 
   try {
-    const client = await Client.connect(
-      "Lightricks/LTX-2.5",
-      {
-        status_callback: (status) => {
-          console.log("LTX Space status:", status);
-          if (status.status === "building") {
-            $("videoStatus").textContent = "AI Space is starting. Please wait...";
-          } else if (status.status === "sleeping") {
-            $("videoStatus").textContent = "Waking up AI Space...";
-          }
-        }
-      }
-    );
-
-    $("videoStatus").textContent = "Preparing your video...";
-
     const ratio = $("videoRatio").value;
-    let width = 1280;
-    let height = 720;
+    const width = ratio === "landscape" ? 832 : 512;
+    const height = ratio === "landscape" ? 512 : 832;
 
-    if (ratio === "9:16") {
-      width = 832;
-      height = 1472;
-    } else if (ratio === "1:1") {
-      width = 1024;
-      height = 1024;
-    }
+    const duration = Number($("videoDuration").value);
 
     const finalPrompt =
-      prompt + ", " + $("videoStyle").value + " style, high quality";
+      prompt +
+      ". Visual style: " + $("videoStyle").value +
+      ". High quality, detailed cinematic video.";
 
-    $("videoStatus").textContent =
-      "Generating video. This may take a few minutes...";
+    status.textContent = "Connecting directly to LTX-2.5 API...";
 
-    const result = await client.predict("/run", {
+    /*
+      image_path is intentionally omitted.
+      This is a text-to-video request without an input image.
+    */
+
+    const payload = {
       prompt: finalPrompt,
-      image_path: null,
       height: height,
       width: width,
-      duration_s: Number($("videoDuration").value),
-      seed: Math.floor(Math.random() * 1000000),
+      duration_s: duration,
+      seed: Math.floor(Math.random() * 2147483647),
       decoder: "conv",
       auto_len: false,
       randomize_seed: true,
       do_enhance: true
-    });
+    };
 
-    console.log("LTX API result:", result);
-
-    function findVideo(value) {
-      if (!value) return null;
-
-      if (typeof value === "string") {
-        return value.startsWith("http") ? value : null;
+    const startResponse = await fetch(
+      LTX_BASE + "/gradio_api/call/run",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
       }
+    );
 
-      if (Array.isArray(value)) {
-        for (const item of value) {
-          const found = findVideo(item);
-          if (found) return found;
-        }
-      }
+    const startText = await startResponse.text();
 
-      if (typeof value === "object") {
-        if (value.video && typeof value.video === "object") {
-          if (value.video.url) return value.video.url;
-          if (value.video.path) return value.video.path;
-        }
-
-        if (typeof value.url === "string") return value.url;
-        if (typeof value.path === "string" && value.path.startsWith("http")) return value.path;
-
-        for (const item of Object.values(value)) {
-          const found = findVideo(item);
-          if (found) return found;
-        }
-      }
-
-      return null;
+    if (!startResponse.ok) {
+      throw new Error(
+        "LTX request failed (" + startResponse.status + "): " +
+        startText.slice(0, 300)
+      );
     }
 
-    const videoUrl = findVideo(result.data);
+    let startData;
+
+    try {
+      startData = JSON.parse(startText);
+    } catch {
+      throw new Error("LTX returned an invalid API response.");
+    }
+
+    if (!startData.event_id) {
+      throw new Error("LTX did not return an event ID.");
+    }
+
+    status.textContent =
+      "Request accepted! Waiting for GPU and video generation...";
+
+    const resultResponse = await fetch(
+      LTX_BASE + "/gradio_api/call/run/" +
+      encodeURIComponent(startData.event_id),
+      {
+        method: "GET",
+        headers: {"Accept": "text/event-stream"}
+      }
+    );
+
+    if (!resultResponse.ok) {
+      throw new Error(
+        "Could not retrieve video result (" +
+        resultResponse.status + ")."
+      );
+    }
+
+    if (!resultResponse.body) {
+      throw new Error("Video result stream is unavailable.");
+    }
+
+    const reader = resultResponse.body.getReader();
+    const decoder = new TextDecoder();
+
+    let buffer = "";
+    let eventName = "";
+    let outputData = null;
+    let completed = false;
+
+    while (true) {
+      const {value, done} = await reader.read();
+
+      if (done) break;
+
+      buffer += decoder.decode(value, {stream:true});
+
+      const lines = buffer.split("\n");
+      buffer = lines.pop() || "";
+
+      for (const line of lines) {
+        if (line.startsWith("event:")) {
+          eventName = line.slice(6).trim();
+        }
+
+        if (line.startsWith("data:")) {
+          const raw = line.slice(5).trim();
+
+          if (!raw) continue;
+
+          if (eventName === "heartbeat") continue;
+
+          let parsed;
+
+          try {
+            parsed = JSON.parse(raw);
+          } catch {
+            parsed = raw;
+          }
+
+          if (eventName === "generating") {
+            status.textContent =
+              "🎬 AI is generating your video. Please wait...";
+          }
+
+          if (eventName === "complete") {
+            outputData = parsed;
+            completed = true;
+          }
+
+          if (eventName === "error") {
+            throw new Error(
+              typeof parsed === "string"
+                ? parsed
+                : JSON.stringify(parsed)
+            );
+          }
+        }
+
+        if (line.trim() === "") {
+          eventName = "";
+        }
+      }
+
+      if (completed) {
+        await reader.cancel();
+        break;
+      }
+    }
+
+    if (!completed || !outputData) {
+      throw new Error(
+        "Video generation ended without a completed result."
+      );
+    }
+
+    const videoUrl = extractVideoUrl(outputData);
 
     if (!videoUrl) {
-      throw new Error("Video URL not found in API response. Check the console/API output.");
+      throw new Error(
+        "Video was generated but its download URL was not found. API result: " +
+        JSON.stringify(outputData).slice(0, 500)
+      );
     }
 
-    $("resultVideo").src = videoUrl;
-    $("resultVideo").style.display = "block";
-    $("videoPlaceholder").style.display = "none";
-    $("resultVideo").load();
+    const finalUrl = new URL(videoUrl, LTX_BASE).href;
 
-    $("videoDownload").href = videoUrl;
-    $("videoDownload").style.display = "inline-block";
+    video.src = finalUrl;
+    video.style.display = "block";
 
-    $("videoStatus").textContent = "✅ Video generated successfully!";
+    download.href = finalUrl;
+    download.style.display = "inline-block";
+
+    status.textContent = "🎉 Your AARVIX AI video is ready!";
+
+    video.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
 
   } catch (error) {
-    console.error("LTX-2.5 Error:", error);
+    console.error("AARVIX LTX error:", error);
 
-    $("videoStatus").textContent =
-      "Video generation failed: " +
-      (error.message || "Please try again later.");
+    status.textContent =
+      "Video generation failed: " + error.message;
 
   } finally {
     button.disabled = false;
-    button.textContent = "🎥 Generate Video";
+    button.textContent = "Generate Video 🚀";
   }
 });
-
-$("year").textContent = new Date().getFullYear();
 </script>
+
 </body>
 </html>
