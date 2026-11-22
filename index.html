@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080b14">
 <title>AARVIX AI — Creative Studio</title>
-<meta name="description" content="Create AI images and videos with AARVIX AI.">
+<meta name="description" content="Create stunning AI images and videos with AARVIX AI.">
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -40,11 +40,11 @@ select option{background:#111827}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .btn{width:100%;padding:14px;border:0;border-radius:11px;color:white;font-weight:bold;cursor:pointer;background:linear-gradient(100deg,#7c3aed,#2563eb)}
 .btn:disabled{opacity:.55;cursor:not-allowed}
-.status{color:#a5b4fc;font-size:13px;margin-top:13px;min-height:18px;line-height:1.5}
+.status{color:#a5b4fc;font-size:13px;margin-top:13px;min-height:18px;line-height:1.5;overflow-wrap:anywhere}
 .result{margin-top:18px;border:1px dashed #ffffff33;background:#0003;border-radius:13px;padding:12px;min-height:100px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;overflow:hidden}
 .result img,.result video{width:100%;max-height:420px;object-fit:contain;border-radius:9px;background:#05070c}
 .placeholder{color:#728099;font-size:13px;text-align:center;padding:22px 8px}
-.download{display:none;text-decoration:none;background:#22c55e20;border:1px solid #22c55e66;color:#86efac;border-radius:9px;padding:10px 15px;font-size:13px;font-weight:bold}
+.download{display:none;text-decoration:none;background:#22c55e20;border:1px solid #22c55e66;color:#86efac;border-radius:9px;padding:10px 15px;font-size:13px;font-weight:bold;margin-top:12px}
 .features{margin-top:45px;display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
 .feature{padding:20px;border:1px solid var(--border);background:#111827aa;border-radius:13px;text-align:center}
 .feature strong{display:block;margin-bottom:8px;font-size:14px}
@@ -169,7 +169,7 @@ footer strong{color:#c4b5fd}
 <script type="module">
 import { Client } from "https://cdn.jsdelivr.net/npm/@gradio/client/dist/index.min.js";
 
-// YOUR CLOUDFLARE BACKEND URL
+// CLOUDFLARE IMAGE BACKEND
 const IMAGE_API_BASE = "https://aarvix-ai-backend.manojdhanawade078.workers.dev";
 
 const $ = id => document.getElementById(id);
@@ -215,7 +215,7 @@ $("imageButton").addEventListener("click", async () => {
     $("imageStatus").textContent = "✅ Image generated successfully!";
 
   } catch (error) {
-    console.error(error);
+    console.error("Image Error:", error);
     $("imageResult").innerHTML = '<div class="placeholder">Image could not be generated.</div>';
     $("imageStatus").textContent = "Error: " + (error.message || "Please try again.");
   } finally {
@@ -224,7 +224,8 @@ $("imageButton").addEventListener("click", async () => {
   }
 });
 
-// TEXT TO VIDEO — LTX-2.5
+
+// TEXT TO VIDEO — LTX-2.5 UPDATED API
 $("videoButton").addEventListener("click", async () => {
   const prompt = $("videoPrompt").value.trim();
 
@@ -237,68 +238,99 @@ $("videoButton").addEventListener("click", async () => {
   const button = $("videoButton");
   button.disabled = true;
   button.textContent = "⏳ Generating Video...";
-  $("videoStatus").textContent = "Connecting to AI video generator...";
+  $("videoStatus").textContent = "Connecting to LTX-2.5...";
   $("videoDownload").style.display = "none";
   $("resultVideo").style.display = "none";
   $("resultVideo").removeAttribute("src");
   $("videoPlaceholder").style.display = "block";
 
   try {
-    const client = await Client.connect("Lightricks/LTX-2.5");
+    const client = await Client.connect(
+      "Lightricks/LTX-2.5",
+      {
+        status_callback: (status) => {
+          console.log("LTX Space status:", status);
+          if (status.status === "building") {
+            $("videoStatus").textContent = "AI Space is starting. Please wait...";
+          } else if (status.status === "sleeping") {
+            $("videoStatus").textContent = "Waking up AI Space...";
+          }
+        }
+      }
+    );
 
-    $("videoStatus").textContent = "Generating video. This may take a few minutes...";
+    $("videoStatus").textContent = "Preparing your video...";
 
     const ratio = $("videoRatio").value;
     let width = 1280;
     let height = 720;
 
     if (ratio === "9:16") {
-      width = 720;
-      height = 1280;
+      width = 832;
+      height = 1472;
     } else if (ratio === "1:1") {
       width = 1024;
       height = 1024;
     }
 
-    const finalPrompt = prompt + ", " + $("videoStyle").value + " style, high quality";
+    const finalPrompt =
+      prompt + ", " + $("videoStyle").value + " style, high quality";
 
-    const result = await client.predict("/run", [
-      finalPrompt,
-      null,
-      height,
-      width,
-      Number($("videoDuration").value),
-      0,
-      "conv",
-      false,
-      true,
-      false
-    ]);
+    $("videoStatus").textContent =
+      "Generating video. This may take a few minutes...";
 
-    function findVideoUrl(value) {
+    const result = await client.predict("/run", {
+      prompt: finalPrompt,
+      image_path: null,
+      height: height,
+      width: width,
+      duration_s: Number($("videoDuration").value),
+      seed: Math.floor(Math.random() * 1000000),
+      decoder: "conv",
+      auto_len: false,
+      randomize_seed: true,
+      do_enhance: true
+    });
+
+    console.log("LTX API result:", result);
+
+    function findVideo(value) {
       if (!value) return null;
+
       if (typeof value === "string") {
         return value.startsWith("http") ? value : null;
       }
+
       if (Array.isArray(value)) {
         for (const item of value) {
-          const found = findVideoUrl(item);
+          const found = findVideo(item);
           if (found) return found;
         }
       }
+
       if (typeof value === "object") {
+        if (value.video && typeof value.video === "object") {
+          if (value.video.url) return value.video.url;
+          if (value.video.path) return value.video.path;
+        }
+
         if (typeof value.url === "string") return value.url;
-        if (typeof value.video === "string") return value.video;
+        if (typeof value.path === "string" && value.path.startsWith("http")) return value.path;
+
         for (const item of Object.values(value)) {
-          const found = findVideoUrl(item);
+          const found = findVideo(item);
           if (found) return found;
         }
       }
+
       return null;
     }
 
-    const videoUrl = findVideoUrl(result.data);
-    if (!videoUrl) throw new Error("Video output not found. Please try again later.");
+    const videoUrl = findVideo(result.data);
+
+    if (!videoUrl) {
+      throw new Error("Video URL not found in API response. Check the console/API output.");
+    }
 
     $("resultVideo").src = videoUrl;
     $("resultVideo").style.display = "block";
@@ -307,11 +339,16 @@ $("videoButton").addEventListener("click", async () => {
 
     $("videoDownload").href = videoUrl;
     $("videoDownload").style.display = "inline-block";
+
     $("videoStatus").textContent = "✅ Video generated successfully!";
 
   } catch (error) {
-    console.error(error);
-    $("videoStatus").textContent = "Video generation failed: " + (error.message || "Please try again.");
+    console.error("LTX-2.5 Error:", error);
+
+    $("videoStatus").textContent =
+      "Video generation failed: " +
+      (error.message || "Please try again later.");
+
   } finally {
     button.disabled = false;
     button.textContent = "🎥 Generate Video";
